@@ -17,18 +17,14 @@
   <properties>
     <java.version>11</java.version>
     <frontend-plugin.version>1.7.6</frontend-plugin.version>
-    <node.version>v10.16.0</node.version>
-    <yarn.version>v1.16.0</yarn.version>
+    <node.version>v14.7.0</node.version>
+    <yarn.version>v1.22.4</yarn.version>
   </properties>
 
   <dependencies>
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-data-jpa</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-security</artifactId>
     </dependency>
     <dependency>
       <groupId>org.springframework.boot</groupId>
