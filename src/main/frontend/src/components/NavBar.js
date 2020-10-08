@@ -25,7 +25,7 @@ const NavBar = (props) => {
   })
   
   return (
-    <div >
+    <div>
       <div className="nav-bar">
         <div className="nav-item">
           <Link to="/pets">Home</Link>

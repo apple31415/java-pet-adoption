@@ -1,5 +1,6 @@
 package com.launchacademy.petadoptions.repositories;
 
+import com.launchacademy.petadoptions.models.AdoptablePet;
 import com.launchacademy.petadoptions.models.PetType;
 import java.util.List;
 import org.springframework.data.repository.PagingAndSortingRepository;

@@ -1,6 +1,5 @@
 package com.launchacademy.petadoptions.seeders;
 
-
 import com.launchacademy.petadoptions.models.PetType;
 import com.launchacademy.petadoptions.repositories.PetTypeRepository;
 import java.util.List;
@@ -35,7 +34,6 @@ public class PetTypeSeeder {
     newPetType4.setType("other");
     newPetType4.setDescription("Anything that is not a cat, dog, or hamster.  Maybe it is mythical, maybe it is an illegal animal that you are not supposed to have.  You criminal!");
     newPetType4.setImageUrl("https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQMLrjGqqiF0IT-_1yjqTRhKwhIXWK5HPifbQ&usqp=CAU");
-
 
     List<PetType> findPetType = (List<PetType>) petTypeRepository.findAll();
     if (findPetType.size() == 0) {
