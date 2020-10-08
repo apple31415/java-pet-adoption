@@ -4,38 +4,41 @@ import _ from 'lodash'
 const PetSurrenderForm = (props) => {
   const [surrenderForm, setSurrenderForm] = useState({
     name: "",
-    phone_number: "",
+    phoneNumber: "",
     email: "",
-    pet_name: "",
-    pet_age: "",
-    pet_type_id: "",
-    pet_image_url: "",
-    vaccination_status: ""
+    petName: "",
+    petAge: "",
+    petImageUrl: "",
+    vaccinationStatus: ""
   })
   
   const [inProcess, setInProcess] = useState("");
 
   let requiredFields = {
     name: "Name",
-    phone_number: "Phone number",
+    phoneNumber: "Phone number",
     email: "Email",
-    pet_name: "Pet name",
-    pet_type_id: "Pet type",
-    pet_image_url: "Link to image",
-    vaccination_status: "Is this critter vaccinated?"
+    petName: "Pet name",
+    petImageUrl: "Link to image",
+    vaccinationStatus: "Is this critter vaccinated?"
   }
 
   const [errors, setErrors] = useState({})
+  const[petType, setPetType] = useState("")
 
   const terriblePerson = () => {
     setInProcess("");
   }
   
   const handleChange = (event) => {
-    setSurrenderForm({
-      ...surrenderForm,
-      [event.target.name]: event.target.value
-    })
+    if (event.target.name === "petType"){
+      setPetType(event.target.value)
+    }else{
+      setSurrenderForm({
+        ...surrenderForm,
+        [event.target.name]: event.target.value
+      })
+    }
   }
 
   const handleSubmit = (event) => {
@@ -50,8 +53,8 @@ const PetSurrenderForm = (props) => {
       }
     }
     setErrors(formErrors)
-    if (_.isEmpty(errors)) {
-      fetch(`/api/v1/adoptions/new`, {
+    if (_.isEmpty(formErrors)) {
+      fetch(`/api/v1/adoptions/new/${petType}`, {
         method: "POST",
         body: JSON.stringify(surrenderForm),
         headers: { "Content-Type": "application/json" }
@@ -64,13 +67,13 @@ const PetSurrenderForm = (props) => {
           </div>)
           setSurrenderForm({
             name: "",
-            phone_number: "",
+            phoneNumber: "",
             email: "",
-            pet_name: "",
-            pet_age: "",
-            pet_type_id: "",
-            pet_image_url: "",
-            vaccination_status: ""
+            petName: "",
+            petAge: "",
+            petTypeId: "",
+            petImageUrl: "",
+            vaccinationStatus: ""
           })
         })
     }
@@ -84,16 +87,16 @@ const PetSurrenderForm = (props) => {
           <input type="text" name="name" id="name" value={surrenderForm.name} />
         </label>
         <label>Phone Number
-          <p className="error">{errors.phone_number}</p>
-          <input type="text" name="phone_number" id="phone_number" value={surrenderForm.phone_number} />
+          <p className="error">{errors.phoneNumber}</p>
+          <input type="text" name="phoneNumber" id="phoneNumber" value={surrenderForm.phoneNumber} />
         </label>
         <label>Email
           <p className="error">{errors.email}</p>
           <input type="text" name="email" id="email" value={surrenderForm.email} />
         </label>
         <label>Pet type
-          <p className="error">{errors.pet_type_id}</p>
-          <select type="text" name="pet_type_id" id="pet_type" value={surrenderForm.pet_type}>
+          <p className="error">{errors.petType}</p>
+          <select type="text" name="petType" id="pet_type" value={petType}>
             <option value=""></option>
             <option value="1">Cat</option>
             <option value="2">Dog</option>
@@ -103,19 +106,19 @@ const PetSurrenderForm = (props) => {
         </label>
         <label>Age
           <p className="error">{errors.age}</p>
-          <input type="text" name="pet_age" id="age" value={surrenderForm.pet_age} />
+          <input type="text" name="petAge" id="age" value={surrenderForm.petAge} />
         </label>
         <label>Pet name
-          <p className="error">{errors.pet_name}</p>
-          <input type="text" name="pet_name" id="name" value={surrenderForm.pet_name} />
+          <p className="error">{errors.petName}</p>
+          <input type="text" name="petName" id="name" value={surrenderForm.petName} />
         </label>
         <label>Image url
-          <p className="error">{errors.image_url}</p>
-          <input type="text" name="pet_image_url" id="image_url" value={surrenderForm.pet_image_url} />
+          <p className="error">{errors.imageUrl}</p>
+          <input type="text" name="petImageUrl" id="image_url" value={surrenderForm.petImageUrl} />
         </label>
         <label>Vaccination Status
-          <p className="error">{errors.vaccination_status}</p>
-          <select type="text" name="vaccination_status" id="vaccination_status" value={surrenderForm.vaccination_status}>
+          <p className="error">{errors.vaccinationStatus}</p>
+          <select type="text" name="vaccinationStatus" id="vaccinationStatus" value={surrenderForm.vaccinationStatus}>
             <option value=""></option>
             <option value="true">Yes</option>
             <option value="false">No</option>

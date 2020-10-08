@@ -14,10 +14,10 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name="adoptable_pets")
 @Getter
 @Setter
 @NoArgsConstructor
+@Table(name="adoptable_pets")
 public class AdoptablePet {
 
   @Id

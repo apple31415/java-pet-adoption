@@ -3,7 +3,6 @@ package com.launchacademy.petadoptions.controllers.api;
 import com.launchacademy.petadoptions.models.PetType;
 import com.launchacademy.petadoptions.repositories.PetTypeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,5 +21,6 @@ public class PetTypeRestController {
   public Iterable<PetType> displayPets(){
     return petTypeRepository.findAll();
   }
+
 }
 

@@ -13,7 +13,7 @@ const PetShow = (props) => {
    fetch(`/api/v1/pets/pet_type/${petId}`)
     .then(result => result.json())
     .then(pet => {
-      setPet(pet[0])
+      setPet(pet)
     })
   }, [pet]);
   
