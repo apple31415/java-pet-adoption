@@ -5,8 +5,13 @@ import NavBar from "./NavBar"
 const App = props => {
   return (
   	<BrowserRouter>
+      <Route exact path="/">
+        <Redirect to="/pets"/>
+      </Route>
       <Route path="/pets" component={NavBar} />
-      <Redirect exact from="/" to="/pets" />
+      <Route path="/pets/:pet_type" component={NavBar} />
+      <Route path="/pets/:pet_type/:id" component={NavBar} />
+      <Route path="/adoptions/new" component={NavBar} />
     </BrowserRouter>
   )
 }
