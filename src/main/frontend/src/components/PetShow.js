@@ -21,6 +21,7 @@ const PetShow = (props) => {
     })
     .then(result => result.json())
     .then(pet => {
+      console.log(pet)
       setPet(pet)
     })
   }, [])
@@ -53,7 +54,7 @@ const PetShow = (props) => {
           <h3>Name: {pet.name}</h3>
           <p>Age: {pet.age}</p>
           <p>Vaccinated: {vaccinated}</p>
-          <p>{pet.adoption_story}</p>
+          <p>{pet.adoptionStory}</p>
         </div>
         <div className="image-container">
         <img className="pet-image" src={pet.img_url} />
@@ -63,9 +64,7 @@ const PetShow = (props) => {
     </div>
     )
   }
-  return (
-    response
-  );
+  return response
 }
 
 export default PetShow

@@ -35,8 +35,9 @@ public class AdoptablePetsRestController {
   }
 
   @Autowired
-  public AdoptablePetsRestController(AdoptablePetsRepository adoptablePetRepository){
+  public AdoptablePetsRestController(AdoptablePetsRepository adoptablePetRepository, PetTypeRepository petTypeRepository){
     this.adoptablePetRepository = adoptablePetRepository;
+    this.petTypeRepository = petTypeRepository;
   }
 
   @GetMapping("pets/{petType}/{id}")
