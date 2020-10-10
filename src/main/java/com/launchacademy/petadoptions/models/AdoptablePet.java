@@ -115,5 +115,4 @@ public class AdoptablePet {
 
   public void setTypeId(int i) {
   }
-
 }
